@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*zerar os espaços iniciais
+  fonte padrão arial*/
+body {
+  margin: 0;
+  font-family:  Arial, Helvetica, 'Times New Roman', Times, serif,sans-serif;
+}

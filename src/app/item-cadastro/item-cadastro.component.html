@@ -1,0 +1,49 @@
+<form #frm="ngForm" (ngSubmit)="submeter(frm)">
+
+  <div class="ui-g">
+
+    <!-- Titulo-->
+    <div class="ui-g-12">
+      <h1>Gestão de Patrimônio</h1>
+    </div>
+
+    <!-- Formulario de Edição-->
+    <div class="ui-g-6 ui-fluid" >
+      <label for="etiqueta">Etiqueta</label>
+      <p-inputMask name="etiqueta" mask="aa9999" ngModel
+      [required]="true"></p-inputMask>
+    </div>
+
+    <div class="ui-g-6  ui-fluid">
+      <label for="dataCriacao">Data Criação</label>
+      <p-calendar name="dataCriacao" dateFormat="dd/mm/yy" ngModel
+      [required]="true"></p-calendar>
+    </div>
+
+    <div class="ui-g-12  ui-fluid">
+        <label for="descricao">Descrição</label>
+        <input pInputText name="descricao" ngModel  [required]="true">
+    </div>
+
+    <!-- Botão Adicionar-->
+    <div class="ui-g-12">
+      <button pButton type="submit" label="Adicionar"
+      [disabled]="frm.invalid"></button>
+    </div>
+  </div>
+</form>
+
+<!-- Grid de Dados-->
+<div class="ui-g">
+  <div class="ui-g-12">
+    <p-dataTable [value]="itens">
+      <p-column field="etiqueta" header="Etiqueta"></p-column>
+      <p-column field="descricao" header="Descrição"></p-column>
+      <p-column  header="Criação">
+        <ng-template pTemplate="body" let-item="rowData">
+          {{ item.dataCriacao | date:'dd/MM/yyyy'}}
+        </ng-template>
+      </p-column>
+    </p-dataTable>
+  </div>
+</div>
